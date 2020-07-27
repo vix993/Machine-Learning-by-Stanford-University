@@ -21,10 +21,15 @@ grad = zeros(size(theta));
 %
 
 
+Hype = sigmoid(X * theta);
 
+y1 = -y' * log(Hype);
 
+y2 = (1 - y)' * log(1 - Hype);
 
+J = (1 / m) * (y1 - y2);
 
+grad = (1 / m) * (Hype - y)' * X;
 
 
 % =============================================================
